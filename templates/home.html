@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+  <h1>DMC Color Picker</h1>
+{% endblock %}
+
+{% block content %}
+
+  <div class="section">
+    <div class="flex_container">
+      <div style="flex-grow: 1">
+        <h3>Select your color</h3>
+        <form method="POST" action="/">
+          <input type="color" name="color_in" value="{{ last }}"><br>
+          <input type="submit" value="Submit" style="width: 85px">
+        </form>
+      </div>
+      <div style="flex-grow: 1">
+        <h3>Current Color</h3>
+        <table style="width: 85px; height: 85px; margin-top: 12px;">
+          <tr><td style="background-color: {{ last }}; border: 1px solid black"></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="margin-block-start: 1.107em; margin-block-end: 0.553em">Results</h2>
+  <div class="section">
+  {% if results %}
+    <table>
+      <tr>
+        <th>DMC Code</th>
+        <th>Name</th>
+        <th>Color</th>
+      </tr>
+      {% for dmc in results %}
+        <tr>
+          <td class="center">{{ dmc[0] }}</td>
+          <td>{{ dmc[1] }}</td>
+          <td class="tooltip center" style="background-color: {{ dmc[2] }}; border: 1px solid black"><span class="tooltiptext">{{ dmc[2] }}</span></td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <h2>No results found</h2>
+  {% endif %}
+  </div>
+{% endblock %}
+
+
+{% block footer %}
+  <p>Project created by Irene Allman and Juliana Pacheco for Swamphacks VI.</p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% block head %}
+<head>
+ 	 	<link rel="stylesheet" href="/static/style.css">
+    <title>{% block title %}{% endblock %} - DMC Color Picker</title>
+</head>
+{% endblock %}
+
+<div class="flex_container" style="flex-direction: column;">
+  <div class="header">
+    {% block header %}{% endblock %}
+  </div>
+
+  <div class="content" style="flex-grow: 1">
+    {% block content %}{% endblock %}
+  </div>
+
+  <div class="footer">
+    {% block footer %}{% endblock %}
+  </div>
+</div>
