@@ -3,7 +3,7 @@
 import csv
 import pathlib
 from dmc_type import DmcType
-from color import Color
+from color.color import Color
 
 
 def load(filename : str, dmc_refs : DmcType):

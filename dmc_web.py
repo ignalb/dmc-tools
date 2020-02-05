@@ -3,7 +3,7 @@
 import requests
 import lxml.html
 from dmc_type import DmcType
-from color import Color
+from color.color import Color
 
 path = ['body', 'table', 'tbody', 'tr', 'td']
 

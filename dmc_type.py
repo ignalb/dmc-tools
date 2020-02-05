@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from color import Color
+from color.color import Color
 
 class DmcType:
     """Container class for DMC data."""
@@ -17,7 +17,7 @@ class DmcType:
     def getClosest(self, color : Color, limit : int = 10) -> list:
         distsqr = {}
         for key,value in self.data.items():
-            distsqr[key] = sum((x-y)**2 for x,y in zip(color.asTuple(),value[1].asTuple()))
+            distsqr[key] = sum((x-y)**2 for x,y in zip(color.asRGB().get(),value[1].asRGB().get()))
         distsort = sorted(distsqr, key=distsqr.get)
         limit = min(len(distsort), limit)
         outlist = []
